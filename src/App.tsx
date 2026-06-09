@@ -1,6 +1,53 @@
+import { motion } from "framer-motion";
+
 function App() {
   return (
+  <>
+   <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+  <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 className="font-bold text-lg">
+      Siddhartha
+    </h1>
+
+    <div className="flex gap-6 text-sm">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+    
+
     <main className="bg-black text-white">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+  <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <h1 className="font-bold text-lg">
+      Siddhartha
+    </h1>
+
+    <div className="flex gap-6 text-sm">
+      <a href="#about" className="hover:text-blue-400 transition">
+        About
+      </a>
+
+      <a href="#skills" className="hover:text-blue-400 transition">
+        Skills
+      </a>
+
+      <a href="#projects" className="hover:text-blue-400 transition">
+        Projects
+      </a>
+
+      <a href="#contact" className="hover:text-blue-400 transition">
+        Contact
+      </a>
+    </div>
+
+  </div>
+</nav>
+   
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-6">
         <div className="max-w-4xl text-center">
@@ -8,11 +55,16 @@ function App() {
             Aspiring <span className="text-blue-400">AI / ML</span> Engineer
           </p>
 
-          <h1 className="text-6xl md:text-8xl font-bold leading-none">
-            Siddhartha
-            <br />
-            Dhyani
-          </h1>
+          <motion.h1
+  className="text-6xl md:text-8xl font-bold leading-none"
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+>
+  Siddhartha
+  <br />
+  Dhyani
+</motion.h1>
 
           <p className="mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
             BTech CSE Student building intelligent systems, learning machine
@@ -32,7 +84,14 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section className="max-w-5xl mx-auto px-6 py-32">
+      <motion.section
+id="about"
+className="max-w-5xl mx-auto px-6 py-32"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}>
+
         <h2 className="text-4xl font-bold mb-8">About Me</h2>
 
         <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
@@ -47,7 +106,10 @@ function App() {
           mastering problem-solving, and continuously learning modern
           technologies that can create meaningful impact.
         </p>
-        <section className="max-w-5xl mx-auto px-6 py-32">
+        <section
+id="skills"
+className="max-w-5xl mx-auto px-6 py-32"
+>
   <h2 className="text-4xl font-bold mb-12">Skills</h2>
 {/* skill Section */}
   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -70,9 +132,12 @@ function App() {
     ))}
   </div>
 </section>
-      </section>
+      </motion.section>
       {/* project dection*/}
-      <section className="max-w-5xl mx-auto px-6 py-32">
+      <section
+id="projects"
+className="max-w-5xl mx-auto px-6 py-32"
+>
   <h2 className="text-4xl font-bold mb-12">Projects</h2>
 
   <div className="grid md:grid-cols-2 gap-6">
@@ -146,7 +211,10 @@ function App() {
     </p>
   </div>
 </section>
-<section className="max-w-5xl mx-auto px-6 py-32">
+<section
+id="contact"
+className="max-w-5xl mx-auto px-6 py-32"
+>
   <h2 className="text-4xl font-bold mb-12">Contact</h2>
 
   <div className="space-y-4 text-lg">
@@ -178,6 +246,8 @@ function App() {
   </div>
 </section>
     </main>
+</>
+
   );
 }
 
